@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父项目配置 -->
+    <parent>
+        <!-- 父项目的组织标识 -->
+        <groupId>com.hanserwei</groupId>
+        <!-- 父项目的唯一标识 -->
+        <artifactId>hannote</artifactId>
+        <!-- 父项目版本号，使用变量${revision}便于统一管理 -->
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 当前模块的唯一标识 -->
+    <artifactId>hannote-auth</artifactId>
+    <!-- 打包方式：jar包 -->
+    <packaging>jar</packaging>
+
+    <!-- 项目名称，使用Maven内置变量 -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述信息 -->
+    <description>小憨书：认证服务（负责处理用户登录、注册、账号注销等）</description>
+
+    <!-- 项目属性配置 -->
+    <properties>
+        <!-- 项目源代码和编译输出使用UTF-8编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 项目依赖配置 -->
+    <dependencies>
+        <!-- Spring Boot Web启动器：用于构建Web应用，包含RESTful、Spring MVC等功能 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Boot测试启动器：用于单元测试和集成测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!-- 作用域：仅在测试阶段使用，不会打包到最终的jar中 -->
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- 项目构建配置 -->
+    <build>
+        <!-- 插件配置 -->
+        <plugins>
+            <!-- Spring Boot Maven插件：用于将应用打包成可执行的jar包 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

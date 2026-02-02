@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Maven 项目对象模型版本 -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 项目坐标信息 -->
+    <groupId>com.hanserwei</groupId>
+    <artifactId>hannote</artifactId>
+    <version>${revision}</version>
+    <name>${project.artifactId}</name>
+    <description>小憨书（仿小红书），基于 Spring Cloud Alibaba 2025.1.0 微服务架构</description>
+
+    <!-- 打包方式：pom 表示这是一个父项目 -->
+    <packaging>pom</packaging>
+
+    <!-- 子模块列表 -->
+    <modules>
+      <module>hannote-auth</module>
+    </modules>
+
+    <!-- 项目属性配置 -->
+    <properties>
+        <!-- 项目版本号 -->
+        <revision>0.0.1-SNAPSHOT</revision>
+
+        <!-- Java 版本配置 -->
+        <java.version>25</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- 项目编码配置 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Spring Boot 版本 -->
+        <spring-boot.version>4.0.2</spring-boot.version>
+
+        <!-- Spring Cloud 版本 -->
+        <spring-cloud.version>2025.1.1</spring-cloud.version>
+
+        <!-- Spring Cloud Alibaba 版本 -->
+        <spring-cloud-alibaba.version>2025.1.0.0-SNAPSHOT</spring-cloud-alibaba.version>
+
+        <!-- Maven 编译插件版本 -->
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+
+        <!-- Lombok 版本 -->
+        <lombok.version>1.18.38</lombok.version>
+    </properties>
+
+    <!-- 依赖管理：统一管理项目依赖版本 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud 依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Alibaba 依赖 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Lombok 依赖：用于简化 Java 代码 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 构建配置 -->
+    <build>
+        <!-- 插件管理：统一管理构建插件 -->
+        <pluginManagement>
+            <plugins>
+                <!-- Spring Boot Maven 插件：用于打包 Spring Boot 应用 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <goals>
+                                <!-- 重新打包为可执行的 jar 文件 -->
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <!-- Maven 编译插件：配置 Java 编译参数 -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <!-- 源码版本 -->
+                        <source>${java.version}</source>
+                        <!-- 目标版本 -->
+                        <target>${java.version}</target>
+                        <!-- 编码格式 -->
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <!-- 注解处理器路径：配置 Lombok 注解处理器 -->
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
