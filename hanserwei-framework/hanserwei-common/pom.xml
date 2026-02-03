@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父项目配置 -->
+    <parent>
+        <!-- 组织ID -->
+        <groupId>com.hanserwei</groupId>
+        <!-- 父项目名称 -->
+        <artifactId>hanserwei-framework</artifactId>
+        <!-- 版本号，使用变量引用 -->
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 当前模块的项目ID -->
+    <artifactId>hanserwei-common</artifactId>
+    <!-- 打包方式：jar包 -->
+    <packaging>jar</packaging>
+
+    <!-- 项目名称，引用项目ID -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>平台通用模块，如一些通用枚举、工具类等等</description>
+
+    <!-- 项目属性配置 -->
+    <properties>
+        <!-- 项目源码编码格式 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 项目依赖配置 -->
+    <dependencies>
+        <!-- Lombok依赖：用于简化Java代码，自动生成getter/setter等方法 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- Jackson -->
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+    </dependencies>
+</project>

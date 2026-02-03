@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 父项目配置 -->
+    <parent>
+        <!-- 组织ID -->
+        <groupId>com.hanserwei</groupId>
+        <!-- 父项目工件ID -->
+        <artifactId>hannote</artifactId>
+        <!-- 版本号，使用变量引用 -->
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 当前模块工件ID -->
+    <artifactId>hanserwei-framework</artifactId>
+    <!-- 打包方式为pom，表示这是一个父模块 -->
+    <packaging>pom</packaging>
+
+    <!-- 项目名称 -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>平台基础设施层：封装一些常用功能，供各个业务线拿来即用</description>
+
+    <!-- 项目属性配置 -->
+    <properties>
+        <!-- 项目源码编码格式 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 子模块列表 -->
+    <modules>
+        <!-- 通用工具组件 -->
+        <module>hanserwei-common</module>
+        <!-- 接口日志组件 -->
+        <module>hanserwei-spring-boot-starter-biz-operationlog</module>
+    </modules>
+
+</project>

@@ -16,7 +16,8 @@
 
     <!-- 子模块列表 -->
     <modules>
-      <module>hannote-auth</module>
+        <module>hannote-auth</module>
+        <module>hanserwei-framework</module>
     </modules>
 
     <!-- 项目属性配置 -->
@@ -83,6 +84,20 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- 通用工具类 -->
+            <dependency>
+                <groupId>com.hanserwei</groupId>
+                <artifactId>hanserwei-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 业务接口日志组件 -->
+            <dependency>
+                <groupId>com.hanserwei</groupId>
+                <artifactId>hanserwei-spring-boot-starter-biz-operationlog</artifactId>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
