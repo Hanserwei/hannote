@@ -6,5 +6,22 @@ spring:
   threads:
     virtual:
       enabled: true
+  # 默认激活 dev 本地开发环境
+  profiles:
+    active: dev
 server:
   port: 8080
+
+mybatis-plus:
+  # MyBatis xml 配置文件路径
+  mapper-locations: classpath:/mapper/**/*.xml
+  # 实体类包路径
+  type-aliases-package: com.hannote.auth.domain.entity
+  # MyBatis 原生配置
+  configuration:
+    # 是否开启自动驼峰命名规则映射
+    map-underscore-to-camel-case: true
+    # 开启 MyBatis 二级缓存，默认为 true
+    cache-enabled: false
+    # 日志实现
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
