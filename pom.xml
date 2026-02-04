@@ -164,5 +164,38 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <plugins>
+            <!-- 统一 revision 版本, 解决子模块打包无法解析 ${revision} 版本号问题 -->
+            <!-- Flatten Maven 插件：用于解析 ${revision} 等 CI 友好的版本变量 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 扁平化模式：仅解析 CI 友好的版本占位符（如 ${revision}） -->
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <!-- 更新 POM 文件：将解析后的版本写入 .flattened-pom.xml -->
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <!-- 执行扁平化操作：在 process-resources 阶段生成扁平化的 POM 文件 -->
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <!-- 清理扁平化文件：在 clean 阶段删除生成的 .flattened-pom.xml -->
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
