@@ -109,6 +109,13 @@
                 <artifactId>hanserwei-spring-boot-starter-biz-operationlog</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <!-- 自定义Jackson 依赖：用于统一处理Java8时间格式  -->
+            <dependency>
+                <groupId>com.hanserwei</groupId>
+                <artifactId>hanserwei-spring-boot-starter-jackson</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

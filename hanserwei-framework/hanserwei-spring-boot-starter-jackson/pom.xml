@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 父项目配置 -->
+    <parent>
+        <!-- 组织ID -->
+        <groupId>com.hanserwei</groupId>
+        <!-- 父项目artifactId -->
+        <artifactId>hanserwei-framework</artifactId>
+        <!-- 版本号，使用变量引用 -->
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 当前模块的artifactId -->
+    <artifactId>hanserwei-spring-boot-starter-jackson</artifactId>
+    <!-- 打包方式为jar包 -->
+    <packaging>jar</packaging>
+
+    <!-- 项目名称，引用artifactId -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>自定义JacksonStarter</description>
+
+    <!-- 项目属性配置 -->
+    <properties>
+        <!-- 源代码编码格式 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- 依赖管理 -->
+    <dependencies>
+        <!-- hanserwei通用模块依赖 -->
+        <dependency>
+            <groupId>com.hanserwei</groupId>
+            <artifactId>hanserwei-common</artifactId>
+        </dependency>
+        <!-- Spring Boot自动配置依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
+</project>

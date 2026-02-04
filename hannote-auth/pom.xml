@@ -42,6 +42,12 @@
             <artifactId>hanserwei-common</artifactId>
         </dependency>
 
+        <!-- 自定义Jackson 依赖：用于统一处理Java8时间格式  -->
+        <dependency>
+            <groupId>com.hanserwei</groupId>
+            <artifactId>hanserwei-spring-boot-starter-jackson</artifactId>
+        </dependency>
+
         <!-- 业务接口日志组件 -->
         <dependency>
             <groupId>com.hanserwei</groupId>
